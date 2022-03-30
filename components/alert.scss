@@ -1,0 +1,12 @@
+.alert {
+  @include btn;
+}
+
+@each $key, $val in $colors {
+  .alert-#{$key} {
+    @include btn($val);
+    &:hover {
+      background-color: lighten($val, 5);
+    }
+  }
+}

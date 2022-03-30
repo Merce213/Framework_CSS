@@ -1,0 +1,29 @@
+.visible-md,
+.visible-sm,
+.visible-xs {
+  display: none;
+}
+
+@include xl {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+@include md {
+  .hidden-sm, .visible-lg, .hidden-md {
+    display: none;
+  }
+  .visible-sm, .visible-md {
+    display: block;
+  }
+}
+
+@media print {
+  .noPrint {
+    display: none; 
+  }
+  .yesPrint { 
+    display: block;
+  }
+}

@@ -1,0 +1,52 @@
+@mixin btn($bg-color: #e2e2e2) {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: $base-padding $base-padding * 2;
+  border-radius: $base-border-radius;
+  background-color: $bg-color;
+}
+
+.btn {
+  @include btn;
+}
+
+@each $key, $val in $colors {
+  .btn-#{$key} {
+    @include btn($val);
+    &:hover {
+      background-color: lighten($val, 5);
+    }
+  }
+  .btn-outlined-#{$key} {
+    @include btn(#fff);
+    border: $base-border-thickness solid $val;
+    &:hover {
+      background-color: $val;
+    }
+  }
+}
+
+@mixin sizeButton($padding, $size, $line, $border) {
+  padding: $padding;
+  font-size: $size;
+  line-height: $line;
+  border-radius: $border;
+}
+
+.btn-lg {
+  @include sizeButton($padding-lg, $size-lg, $line-lg, $border-lg);
+}
+
+.btn-md {
+  @include sizeButton($padding-md, $size-md, $line-md, $border-md)
+}
+
+.btn-sm {
+  @include sizeButton($padding-sm, $size-sm, $line-sm, $border-sm);
+}
+
+.btn-xs {
+  @include sizeButton($padding-xs, $size-xs, $line-xs, $border-xs);
+}
